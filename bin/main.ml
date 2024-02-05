@@ -1,0 +1,30 @@
+open Checkanno
+
+let config_file = ref "config.json"
+
+let read_file filename =
+  let ch = open_in filename in
+  let s = really_input_string ch (in_channel_length ch) in
+  close_in ch;
+  s
+
+let parse_worker () =
+  let usage = "usage: " ^ Sys.argv.(0) in
+  let speclist =
+    [
+      ( "--config",
+        Arg.Set_string config_file,
+        ": to specify the configuration file to use" );
+    ]
+  in
+  Arg.parse speclist (fun x -> raise (Arg.Bad ("Bad argument : " ^ x))) usage
+
+let parse () =
+  let () = parse_worker () in
+  let data = read_file !config_file in
+  match Config.parse ~data with
+  | Error message -> failwith message
+  | Ok _ -> ()
+
+let () = parse()
+

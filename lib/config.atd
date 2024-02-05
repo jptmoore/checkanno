@@ -1,0 +1,5 @@
+
+type config = {
+  status : string;
+  version : string;
+}
