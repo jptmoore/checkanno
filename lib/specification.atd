@@ -1,5 +1,5 @@
 
-type config = {
+type specification = {
   status : string;
   version : string;
 }
