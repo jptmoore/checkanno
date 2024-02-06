@@ -1,5 +1,6 @@
-
 type specification = {
-  status : string;
-  version : string;
+  context <json name="@context"> : string;
+  _type <json name="type"> : string;
+  body: string;
+  target: string
 }
