@@ -1,6 +1,10 @@
+
 type specification = {
-  context <json name="@context"> : string;
+  _context <json name="@context"> : string;
   _type <json name="type"> : string;
-  body: string;
-  target: string
+  body  : body_t;
+  target : string
 }
+
+type body_t = [ String of string | Int of int ]
+
