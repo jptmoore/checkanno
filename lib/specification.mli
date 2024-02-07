@@ -1,1 +1,1 @@
-val parse : data:Specification_v.specification -> unit
+val validate : data:string -> unit

@@ -10,7 +10,9 @@ type body_t = {
   t <json name="type"> : [ TextualBody ];
   language : [ Language  <json name="en"> ];
   format : [ Format <json name="text/plain"> ];
-  value : string
+  value : value_t
 }
 
 type target_t = string <ocaml valid="Specification_util.validate_target">
+
+type value_t = string <ocaml valid="Specification_util.validate_value">
