@@ -22,7 +22,8 @@ let parse_worker () =
 let parse () =
   let () = parse_worker () in
   let data = read_file !sample_file in
-  Specification.validate ~data
+  let is_valid = Specification.validate ~data in
+  Printf.printf "%s\n" (if is_valid then "VALID" else "INVALID")
 
 let () = parse()
 

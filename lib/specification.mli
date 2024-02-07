@@ -1,1 +1,1 @@
-val validate : data:string -> unit
+val validate : data:string -> bool
