@@ -1,6 +1,11 @@
 {
-  "@context": "http://www.w3.org/ns/anno.jsonld",
   "type": "Annotation",
-  "body": 42,
-  "target": "http://example.com/page1"
+  "motivation": "commenting",
+  "body": {
+    "type": "TextualBody",
+    "language": "en",
+    "format": "text/plain",
+    "value": "Very nice marketplace"
+  },
+  "target": "https://iiif.io/api/cookbook/recipe/0266-full-canvas-annotation/canvas-1"
 }

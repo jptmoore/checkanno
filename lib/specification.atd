@@ -1,10 +1,14 @@
 
 type specification = {
-  _context <json name="@context"> : string;
-  _type <json name="type"> : string;
-  body  : body_t;
+  t <json name="type"> : [ Annotation ];
+  motivation : [ Motivation <json name="commenting"> ]; 
+  body : body_t;
   target : string
 }
 
-type body_t = [ String of string | Int of int ]
-
+type body_t = {
+  t <json name="type"> : [ TextualBody ];
+  language : [ Language  <json name="en"> ];
+  format : [ Format <json name="text/plain"> ];
+  value : string
+}
