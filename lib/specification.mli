@@ -1,1 +1,1 @@
-val validate : data:string -> bool
+val validate : data:string -> (string, string) result
