@@ -22,9 +22,7 @@ let parse_worker () =
 let parse () =
   let () = parse_worker () in
   let data = read_file !sample_file in
-  match Specification.parse ~data with
-  | Error message -> failwith message
-  | Ok _ -> ()
+  Specification.parse ~data:(Specification_j.specification_of_string data)
 
 let () = parse()
 

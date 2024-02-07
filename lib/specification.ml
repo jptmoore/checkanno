@@ -1,6 +1,10 @@
-let create_specification data = Specification_j.specification_of_string data
 
 let parse ~data =
-  match create_specification data with
-  | exception e -> Result.error (Printexc.to_string e)
-  | config -> Result.ok config
+  let is_valid = match Specification_v.validate_specification [] data with
+    | None -> true
+    | _ -> false
+  in
+  Printf.printf "%s:\n%s\n"
+    (if is_valid then "VALID" else "INVALID")
+    (Yojson.Safe.prettify (Specification_j.string_of_specification data))
+

@@ -1,1 +1,1 @@
-val parse : data:string -> (Specification_t.specification, string) result
+val parse : data:Specification_v.specification -> unit
