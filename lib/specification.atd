@@ -3,7 +3,7 @@ type specification = {
   t <json name="type"> : [ Annotation ];
   motivation : [ Motivation <json name="commenting"> ]; 
   body : body_t;
-  target : string
+  target : target_t
 }
 
 type body_t = {
@@ -12,3 +12,5 @@ type body_t = {
   format : [ Format <json name="text/plain"> ];
   value : string
 }
+
+type target_t = string <ocaml valid="Specification_util.validate_target">

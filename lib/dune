@@ -10,7 +10,13 @@
  (action
   (run atdgen -t %{deps})))
 
+(rule
+ (targets specification_v.ml specification_v.mli)
+ (deps specification.atd)
+ (action
+  (run atdgen -v %{deps})))
+
 (library
  (name checkanno)
- (modules specification specification_t specification_j)
+ (modules specification specification_util specification_t specification_j specification_v)
  (libraries atdgen))
