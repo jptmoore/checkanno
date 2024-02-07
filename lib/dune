@@ -19,4 +19,4 @@
 (library
  (name checkanno)
  (modules specification specification_util specification_t specification_j specification_v)
- (libraries atdgen))
+ (libraries atdgen uri))
