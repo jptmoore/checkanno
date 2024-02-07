@@ -1,9 +1,12 @@
 
 type specification = {
+  ?id : id_t;
   t <json name="type"> : [ Annotation ];
   motivation : [ Motivation <json name="commenting"> ]; 
   body : body_t;
-  target : target_t
+  target : target_t;
+  ?created : string option;
+  ?modified : string option
 }
 
 type body_t = {
@@ -13,6 +16,6 @@ type body_t = {
   value : value_t
 }
 
+type id_t = string option <ocaml valid="Specification_util.validate_id">
 type target_t = string <ocaml valid="Specification_util.validate_target">
-
 type value_t = string <ocaml valid="Specification_util.validate_value">
