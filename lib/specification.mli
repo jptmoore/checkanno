@@ -1,1 +1,1 @@
-val validate : data:string -> (string, string) result
+val validate : data:string -> (unit, string) result
