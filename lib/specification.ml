@@ -5,4 +5,4 @@ let validate ~data =
     Specification_v.validate_specification [] spec |> function
       | None -> Result.ok ()
       | Some e -> Result.error (Atdgen_runtime.Util.Validation.string_of_error e)
-  with e -> Result.error (Printexc.to_string e)
+  with exc -> Result.error (Printexc.to_string exc)
