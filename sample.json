@@ -7,5 +7,6 @@
     "format": "text/plain",
     "value": "Very nice marketplace"
   },
-  "target": "https://iiif.io/api/cookbook/recipe/0266-full-canvas-annotation/canvas-1"
+  "target": "https://iiif.io/api/cookbook/recipe/0266-full-canvas-annotation/canvas-1",
+  "target2": ["T1", "https://example.com/ocean123.jpg"]
 }

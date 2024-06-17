@@ -5,9 +5,23 @@ type specification = {
   motivation : [ Motivation <json name="commenting"> ]; 
   body : body_t;
   target : target_t;
+  target2 : target2_t;
   ?created : string option;
   ?modified : string option
 }
+
+type target2_t = [
+  | T1 of target2_simple
+  | T2 of target2_t_complex
+] <json adapter.ocaml="Specification_adapter">
+
+type target2_simple = string
+
+type target2_t_complex = {
+  title: string;
+  body: string;
+} 
+
 
 type body_t = {
   t <json name="type"> : [ TextualBody ];

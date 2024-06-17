@@ -2,7 +2,7 @@
  (targets specification_j.ml specification_j.mli)
  (deps specification.atd)
  (action
-  (run atdgen -j %{deps})))
+  (run atdgen -j -j-std %{deps})))
 
 (rule
  (targets specification_t.ml specification_t.mli)
@@ -18,5 +18,5 @@
 
 (library
  (name checkanno)
- (modules specification specification_util specification_t specification_j specification_v)
+ (modules specification specification_adapter specification_util specification_t specification_j specification_v)
  (libraries atdgen uri))
