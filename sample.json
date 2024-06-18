@@ -7,9 +7,8 @@
     "format": "text/plain",
     "value": "Very nice marketplace"
   },
-  "target": "https://iiif.io/api/cookbook/recipe/0266-full-canvas-annotation/canvas-1",
-  "target2": {
-    "title": "foobar",
-    "body": "https://example.com/ocean123.jpg"
+  "target": {
+    "type": "SpecificResource",
+    "source": "https://example.com/ocean123.jpg"
   }
 }
