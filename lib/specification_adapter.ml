@@ -1,9 +1,14 @@
-let normalize (json : Yojson.Safe.t) : Yojson.Safe.t = 
+let normalize (json: Yojson.Safe.t): Yojson.Safe.t = 
   let json_str = Yojson.Safe.to_string json in
-  let () = Printf.printf "%s\n" json_str in
-  json
+  Printf.printf "normalising %s\n" json_str;
+  match json with
+  | `String s -> `List [`String "T1"; `String s]
+  | `Assoc xs -> `List [`String "T2"; `Assoc xs]
+  | _ -> failwith "Invalid JSON"
 
-let restore (json : Yojson.Safe.t) : Yojson.Safe.t = 
+let restore (json: Yojson.Safe.t): Yojson.Safe.t = 
   let json_str = Yojson.Safe.to_string json in
-  let () = Printf.printf "%s\n" json_str in
-  json
+  Printf.printf "restoring %s\n" json_str;
+  match json with
+  | `List [`String _; json'] -> json'
+  | _ -> failwith "Invalid JSON"
