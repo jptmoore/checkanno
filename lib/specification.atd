@@ -9,6 +9,19 @@ type specification = {
   ?modified : string option
 }
 
+type target_t = [
+  | T1 of target_t_simple
+  | T2 of target_t_complex
+] <json adapter.ocaml="Specification_adapter">
+
+type target_t_simple = uri_t
+
+type target_t_complex = {
+  t <json name="type"> : [ SpecificResource ];
+  source: uri_t;
+} 
+
+
 type body_t = {
   t <json name="type"> : [ TextualBody ];
   language : [ Language  <json name="en"> ];
@@ -16,6 +29,6 @@ type body_t = {
   value : value_t
 }
 
+type uri_t = string <ocaml valid="Specification_util.validate_uri">
 type id_t = string option <ocaml valid="Specification_util.validate_id">
-type target_t = string <ocaml valid="Specification_util.validate_target">
 type value_t = string <ocaml valid="Specification_util.validate_value">
